@@ -19,21 +19,17 @@ public class HelloControllerTest {
 
   @Autowired
   private MockMvc mvc; //4
-
   @Test
   public void hello가_리턴된다() throws Exception {
     String hello = "hello";
-
     mvc.perform(get("/hello")) //5
             .andExpect(status().isOk()) //6
             .andExpect(content().string(hello)); //7
   }
-
   @Test
   public void helloDto가_리턴된다() throws Exception {
     String name = "hello";
     int amount = 1000;
-
     mvc.perform(
             get("/hello/dto")
             .param("name",name)
